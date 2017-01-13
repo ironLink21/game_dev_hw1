@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="author" content="Seth Bertlshofer" />
+
+        <title>Game loop</title>
+        
+        <link rel="stylesheet" href="styles.css" />
+        <script type="text/javascript" src="./gameLoop.js"></script>
+    </head>
+    <body>
+        <div id="main-window">
+            <h1> Browser GameLoop </h1>
+            <div id="logic-section">
+                <textarea id="output-section" readonly></textarea>
+                <div id="input-section">
+                    <label for="event-name">Event Name:</label><div><input id="event-name" class="inputs" type="text" required/></div>
+                    <label for="interval">Interval:</label><div><input id="interval" class="inputs" type="text" required/></div>
+                    <label for="repeat"># Times:</label><div><input id="repeat" class="inputs" type="text" required/></div>
+                    <button type="button" onclick="gameLoop.addEvent();">Add Event</button>
+                </div>
+            </div>
+            <h4> Created for CS 5410 </h4>
+        </div>
+    </body>
+</html>
