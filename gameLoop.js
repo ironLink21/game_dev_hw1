@@ -4,16 +4,16 @@ var gameLoop = (()=>{
     var prevTime = 0;
     var events = [];
 
-    var gameLoop=(time)=>{
+    function gameLoop(time) {
         let elapsedTime = time - prevTime;
         prevTime = time;
 
         update(elapsedTime);
 
         window.requestAnimationFrame(gameLoop);
-    };
+    }
 
-    var update=(elapsedTime)=>{
+    function update(elapsedTime) {
         events.forEach((event, i)=>{
             event.time += elapsedTime;
             if(event.time >= event.interval) {
@@ -29,17 +29,17 @@ var gameLoop = (()=>{
         events = events.filter((item)=>{
             return (item.repeat != 0) ? item : null; 
         });
-    };
+    }
 
-    var render=(event)=>{
+    function render(event) {
         if(event) {
             let node = document.getElementById('output-section');
             node.innerHTML += "Event: " + event.eventName + "(" + event.repeat + " remaining)\n";
             node.scrollTop = node.scrollHeight;
         }
-    };
+    }
 
-    var addEvent=()=>{
+    function addEvent(){
         let eventName = document.getElementById('event-name').value;
         let interval = parseInt(document.getElementById('interval').value);
         let repeat = parseInt(document.getElementById('repeat').value);
@@ -49,7 +49,7 @@ var gameLoop = (()=>{
         document.getElementById('event-name').value = "";
         document.getElementById('interval').value = "";
         document.getElementById('repeat').value = "";
-    };
+    }
 
     window.onload=()=>{
         window.requestAnimationFrame(gameLoop);
