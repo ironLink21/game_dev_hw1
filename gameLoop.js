@@ -25,6 +25,10 @@ var gameLoop = (()=>{
             }
             events[i] = event;
         });
+
+        events = events.filter((item)=>{
+            return (item.repeat != 0) ? item : null; 
+        });
     };
 
     var render=(event)=>{
